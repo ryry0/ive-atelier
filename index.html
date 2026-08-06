@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="A gallery of unusual things brought into existence." />
   <title>Work — Ryan-David Reyes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -12,7 +15,7 @@
       --ink: #171714;
       --muted: #6d695f;
       --line: rgba(23, 23, 20, 0.15);
-      --max: 1500px;
+      --max: 1200px;
       --pad: clamp(20px, 4vw, 72px);
     }
 
@@ -47,6 +50,7 @@
       justify-content: space-between;
       gap: 24px;
       border-bottom: 1px solid var(--line);
+      font-family: "Montserrat", sans-serif;
     }
 
     .name {
@@ -82,7 +86,7 @@
     h1 {
       max-width: 1100px;
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Montserrat", sans-serif;
       font-size: clamp(3.2rem, 8.5vw, 9rem);
       line-height: 0.92;
       letter-spacing: -0.065em;
@@ -115,12 +119,19 @@
       aspect-ratio: 16 / 9;
     }
 
-    .media img,
-    .media video {
+    .media img {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
+      transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter 500ms ease;
+    }
+
+    .media video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
       transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter 500ms ease;
     }
 
@@ -141,8 +152,8 @@
 
     .project-title {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.15rem, 4vw, 4.9rem);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2.15rem, 4vw, 4.0rem);
       font-weight: 500;
       letter-spacing: -0.045em;
       line-height: 1;
@@ -225,9 +236,9 @@
 
 <body>
   <header>
-    <a class="name" href="/">Ryan-David Reyes</a>
+    <a class="name" href="https://recu.rs/ion">RYAN REYES</a>
     <nav aria-label="Primary navigation">
-      <a href="/">Home</a>
+      <a href="https://recu.rs/ion">Home</a>
       <a href="mailto:ryan.david.reyes@gmail.com">Email</a>
       <a href="https://github.com/ryry0">GitHub</a>
     </nav>
@@ -237,7 +248,7 @@
     <p class="eyebrow">Selected work</p>
     <h1>Unusual things brought into existence.</h1>
     <p>
-      Machines, instruments, games, control systems, and experiments—
+      Machines, games, control systems, and experiments—
       built wherever engineering, movement, and strange ideas meet.
     </p>
   </section>
@@ -245,7 +256,7 @@
   <main id="projects"></main>
 
   <footer>
-    <span>Ryan-David Reyes</span>
+    <span>Ryan Reyes</span>
     <span>Built as one extremely ordinary HTML file.</span>
   </footer>
 
@@ -263,36 +274,44 @@
     */
     const projects = [
       {
-        title: "Echoes",
-        description: "A combat game where you fight alongside past versions of yourself.",
+        title: "Echo",
+        description: "A combat game where you fight alongside past versions of yourself. Submitted as COUNT//DOWN for the 2026 GMTK Game Jam.",
         meta: "Game design · Godot · Animation systems",
-        media: "media/echoes.jpg",
-        mediaType: "image",
-        href: "#"
+        media: "media/echoes.webm",
+        mediaType: "video",
+        href: "https://lmnlxyvn.itch.io/countdown"
       },
       {
         title: "MAGResDIO",
         description: "A deterministic FPGA instrument for sequencing precision NMR experiments.",
         meta: "FPGA · Verilog · C++ · Instrumentation",
-        media: "media/magresdio.jpg",
+        media: "media/MAGResDIO1.jpg",
         mediaType: "image",
-        href: "#"
+        href: "https://magres.tech"
       },
       {
         title: "Hybrid Exoskeleton",
         description: "A distributed robotic neuroprosthesis combining powered assistance with neuromuscular stimulation.",
         meta: "Robotics · Controls · Embedded systems",
-        media: "media/exoskeleton.jpg",
-        mediaType: "image",
-        href: "#"
+        media: "media/hnp.webm",
+        mediaType: "video",
+        href: "https://raw.githubusercontent.com/ryry0/LaTeX-Resume/master/reyes-biotilc.pdf"
       },
       {
         title: "Origami Quadcopter",
-        description: "A folding aerial robot shaped by deployable structures and compact mechanical design.",
+        description: "A folding aerial robot inspired by deployable structures and compact mechanical design.",
         meta: "Robotics · Mechanisms · Prototyping",
-        media: "media/quadcopter.jpg",
+        media: "media/Origami.png",
         mediaType: "image",
-        href: "#"
+        href: "https://raw.githubusercontent.com/ryry0/LaTeX-Resume/master/reyes-origami-quad.pdf"
+      },
+      {
+        title: "Strange Attractors",
+        description: "Beautiful mathematical structures emerging from simple rules.",
+        meta: "Webgl · Visualization · Mathematics",
+        media: "media/attractor1.png",
+        mediaType: "image",
+        href: "https://recu.rs/ivity"
       }
     ];
 
