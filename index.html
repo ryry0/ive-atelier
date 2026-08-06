@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A gallery of unusual things brought into existence." />
+  <title>Work — Ryan-David Reyes</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #171714;
+      --muted: #6d695f;
+      --line: rgba(23, 23, 20, 0.15);
+      --max: 1500px;
+      --pad: clamp(20px, 4vw, 72px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,255,255,.8), transparent 35rem),
+        var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      width: min(calc(100% - 2 * var(--pad)), var(--max));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .name {
+      font-size: 0.92rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .intro {
+      width: min(calc(100% - 2 * var(--pad)), var(--max));
+      margin: 0 auto;
+      padding: clamp(70px, 11vw, 170px) 0 clamp(90px, 13vw, 190px);
+    }
+
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 1100px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 8.5vw, 9rem);
+      line-height: 0.92;
+      letter-spacing: -0.065em;
+      font-weight: 500;
+    }
+
+    .intro p:last-child {
+      max-width: 680px;
+      margin: 42px 0 0 auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.35vw, 1.28rem);
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(calc(100% - 2 * var(--pad)), var(--max));
+      margin: 0 auto;
+    }
+
+    .project {
+      display: block;
+      padding: 0 0 clamp(110px, 14vw, 210px);
+    }
+
+    .media {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #d8d4cb;
+      aspect-ratio: 16 / 9;
+    }
+
+    .media img,
+    .media video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter 500ms ease;
+    }
+
+    .project:hover .media img,
+    .project:hover .media video {
+      transform: scale(1.012);
+      filter: saturate(1.04);
+    }
+
+    .project-info {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr);
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      margin-top: 18px;
+    }
+
+    .project-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 4vw, 4.9rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .project-copy {
+      align-self: end;
+    }
+
+    .project-description {
+      margin: 0;
+      font-size: clamp(1rem, 1.25vw, 1.2rem);
+      line-height: 1.55;
+    }
+
+    .project-meta {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+
+    footer {
+      width: min(calc(100% - 2 * var(--pad)), var(--max));
+      margin: 0 auto;
+      padding: 36px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .empty {
+      padding: 80px 0 140px;
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        align-items: flex-start;
+        padding-bottom: 28px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 8px;
+        text-align: right;
+      }
+
+      .intro {
+        padding-top: 72px;
+      }
+
+      .intro p:last-child {
+        margin-left: 0;
+      }
+
+      .project-info {
+        grid-template-columns: 1fr;
+      }
+
+      .project-copy {
+        max-width: 620px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .media img, .media video { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="name" href="/">Ryan-David Reyes</a>
+    <nav aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="mailto:ryan.david.reyes@gmail.com">Email</a>
+      <a href="https://github.com/ryry0">GitHub</a>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <p class="eyebrow">Selected work</p>
+    <h1>Unusual things brought into existence.</h1>
+    <p>
+      Machines, instruments, games, control systems, and experiments—
+      built wherever engineering, movement, and strange ideas meet.
+    </p>
+  </section>
+
+  <main id="projects"></main>
+
+  <footer>
+    <span>Ryan-David Reyes</span>
+    <span>Built as one extremely ordinary HTML file.</span>
+  </footer>
+
+  <script>
+    /*
+      EDIT ONLY THIS LIST.
+
+      media:
+        - image: "media/my-image.jpg"
+        - video: "media/my-video.mp4"
+
+      href:
+        - Use "#" when there is no detail page.
+        - Or link anywhere: "/projects/echoes/", GitHub, itch.io, a PDF, etc.
+    */
+    const projects = [
+      {
+        title: "Echoes",
+        description: "A combat game where you fight alongside past versions of yourself.",
+        meta: "Game design · Godot · Animation systems",
+        media: "media/echoes.jpg",
+        mediaType: "image",
+        href: "#"
+      },
+      {
+        title: "MAGResDIO",
+        description: "A deterministic FPGA instrument for sequencing precision NMR experiments.",
+        meta: "FPGA · Verilog · C++ · Instrumentation",
+        media: "media/magresdio.jpg",
+        mediaType: "image",
+        href: "#"
+      },
+      {
+        title: "Hybrid Exoskeleton",
+        description: "A distributed robotic neuroprosthesis combining powered assistance with neuromuscular stimulation.",
+        meta: "Robotics · Controls · Embedded systems",
+        media: "media/exoskeleton.jpg",
+        mediaType: "image",
+        href: "#"
+      },
+      {
+        title: "Origami Quadcopter",
+        description: "A folding aerial robot shaped by deployable structures and compact mechanical design.",
+        meta: "Robotics · Mechanisms · Prototyping",
+        media: "media/quadcopter.jpg",
+        mediaType: "image",
+        href: "#"
+      }
+    ];
+
+    const container = document.querySelector("#projects");
+
+    function makeMedia(project) {
+      if (project.mediaType === "video") {
+        return `
+          <video
+            src="${project.media}"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="${project.title}"
+          ></video>
+        `;
+      }
+
+      return `
+        <img
+          src="${project.media}"
+          alt="${project.title}"
+          loading="lazy"
+        />
+      `;
+    }
+
+    if (!projects.length) {
+      container.innerHTML = '<p class="empty">Projects soon.</p>';
+    } else {
+      container.innerHTML = projects.map(project => `
+        <a class="project" href="${project.href}" ${project.href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>
+          <div class="media">${makeMedia(project)}</div>
+          <div class="project-info">
+            <h2 class="project-title">${project.title}</h2>
+            <div class="project-copy">
+              <p class="project-description">${project.description}</p>
+              <p class="project-meta">${project.meta}</p>
+            </div>
+          </div>
+        </a>
+      `).join("");
+    }
+  </script>
+</body>
+</html>
